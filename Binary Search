@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class binarySearch {
+    public static void printArray(int arr[]) {
+
+        int n = arr.length;
+        for (int i = 0; i < arr.length; i++) {
+
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static int[] takeinput() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        return arr;
+
+    }
+
+    public static int BSearch(int arr[], int p) {
+
+        int n = arr.length;
+        int start = 0;
+        int end = n - 1;
+        int mid = 0;
+
+        for (int i = 0; i < n; i++) {
+            mid = (start + end) / 2;
+            if (arr[mid] > p) {
+
+                end = mid - 1;
+            } else if (arr[mid] < p) {
+                start = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int arr[] = takeinput();
+        printArray(arr);
+        int p = sc.nextInt();
+        int sera = BSearch(arr, 5);
+        System.out.println(sera);
+
+    }
+
+}
