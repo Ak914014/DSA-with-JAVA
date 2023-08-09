@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class selectionSort {
+
+    public static void printArray(int arr[]) {
+
+        int n = arr.length;
+        for (int i = 0; i < arr.length; i++) {
+
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static int[] takeinput() {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        return arr;
+
+    }
+
+    public static void SelectionS(int arr[]) {
+
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+
+            //  this min and minIndex value will be same for every itration 
+            //  beacause if we chnage the sorted array will be diffrent 
+            int min = Integer.MAX_VALUE;
+            //  max value compare the index vlaue 
+            int minIndex = -1;
+            //  min index for store the index vlaue of the small number that we store in 
+            //  min value 
+
+            for (int j = i; j < n; j++) {
+
+
+     
+                if (arr[j] < min) {
+
+                    min = arr[j];
+                    //  storing jth index value that is smaller than min in min 
+                    minIndex = j;
+                    //  stpring jth index in minIndex 
+
+                }
+            }
+            //  here we are creating temporary variable that store the minindex value 
+            //  that is storing in lopp while checking the smallest number 
+            int temp = arr[minIndex];
+            // after min index we are stroing arr[i] value where we start the itration of 
+            //  the loop and chnage the minINdex value to ith index value because 
+            //  that value is biggre than minIndex value 
+            arr[minIndex] = arr[i];
+            // after changing the value of minIndex time to chnage Ith index value to minIndex
+            //  value that is stored in temp variable 
+            arr[i] = temp;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int arr[] = takeinput();
+        SelectionS(arr);
+        printArray(arr);
+
+    }
+
+}
