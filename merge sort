@@ -1,0 +1,69 @@
+public class mergeSort {
+
+    public static void printArray(int arr[]) {
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ",");
+        }
+    }
+
+    public static int[] mergeS(int arr1[], int arr2[]) {
+
+        int n = arr1.length;
+        int m = arr2.length;
+        int c = n + m;
+        int arr[] = new int[c];
+        int i = 0, j = 0, k = 0;
+
+        // here we are creating loop until the value of i or j is smaller than n and m
+        while (i < n && j < m) {
+
+            // here we are checking that the value of first array index is greater or equal
+            // than the second array value
+            // if the condition is true than the value of new array that merge both the
+            // the array index's value is the value of first array index
+            if (arr1[i] <= arr2[j]) {
+
+                arr[k] = arr1[i];
+                i++;
+                k++;
+            } else {
+                // if the condition is not setisfied than the value of new arry will be equal to
+                // second array index value
+                // and we are adding ++ cause that index is fill with that value so for the new
+                // index we are adding
+                arr[k] = arr2[j];
+                j++;
+                k++;
+            }
+        }
+        // here both loop check if any value left from the any array if any value or
+        // index
+        // left that gonna copy dircet to the new marge array
+        // in this loop we are comparing the length of array and the length of that
+        // index varialbe which we are using via filling the new merge array
+        while (m > j) {
+
+            arr[k] = arr2[j];
+            k++;
+            j++;
+        }
+
+        while (n > i) {
+
+            arr[k] = arr1[i];
+            k++;
+            i++;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr1 = { 1, 3, 5, 7, 9 };
+        int[] arr2 = { 2, 4, 6, 8 };
+        int[] arr = mergeS(arr1, arr2);
+        printArray(arr);
+
+    }
+}
