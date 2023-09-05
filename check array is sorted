@@ -1,0 +1,25 @@
+public class isArraySorted_1 {
+    public static boolean arrSorted(int arr []) {
+      
+        if(arr.length ==1){
+            return true;
+        }
+        if(arr[0]> arr[1]){
+            return false;
+        }
+        int smallArray [] = new int [arr.length-1];
+        //  and make copy of old elemnt for small array
+        for (int i = 1; i < arr.length; i++) {
+            smallArray[i-1] = arr[i];
+        }
+        boolean isArraySorted = arrSorted(smallArray);
+        return isArraySorted;
+    }
+    public static void main(String[] args) {
+
+     int arr [] = {1,2,3,4,5,7,8};
+     boolean ans = arrSorted(arr);
+     System.out.println(ans);
+        
+    }
+}
