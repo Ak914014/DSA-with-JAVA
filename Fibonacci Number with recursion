@@ -1,0 +1,24 @@
+public class fibonacciNumber {
+
+    public static int printN(int n ){
+
+        if(n==0){
+            return 0;
+        }
+        if(n==1 || n==2){
+            return 1;
+        }
+        int fibn = printN(n-1);
+        int fib2 = printN(n-2);
+        int output = fibn +fib2;
+        return output; 
+        
+    }
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 0; i <= n; i++) {
+              System.out.println(printN(i));
+        }
+
+    }
+}
